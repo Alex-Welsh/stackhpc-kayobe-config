@@ -7,7 +7,7 @@ set -eu
 # These parameters must be changed to your own fork 
 
 KAYOBE_CONFIG_REPO="https://github.com/Alex-Welsh/stackhpc-kayobe-config"
-KAYOBE_CONFIG_BRANCH=main
+KAYOBE_CONFIG_BRANCH=training-ceph
 
 ###################################################
 
@@ -138,8 +138,8 @@ kayobe overcloud inventory discover
 kayobe overcloud hardware inspect
 kayobe overcloud provision
 kayobe overcloud host configure
-# kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm.yml
-# kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm-gather-keys.yml
+kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm.yml
+kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm-gather-keys.yml
 kayobe overcloud container image pull
 kayobe overcloud service deploy
 source $KOLLA_CONFIG_PATH/admin-openrc.sh
