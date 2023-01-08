@@ -135,7 +135,6 @@ $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/configure-local-networking.
 
 # Inspect and provision the overcloud hardware:
 kayobe overcloud inventory discover
-kayobe overcloud hardware inspect
 kayobe overcloud provision
 kayobe overcloud host configure
 kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm.yml

@@ -1,15 +1,11 @@
-[storage-ceph]
-storage0
-storage1
-
 [mons:children]
-storage-ceph
+storage
 
 [mgrs:children]
-storage-ceph
+storage
 
 [osds:children]
-storage-ceph
+storage
 
 [rgws:children]
-storage-ceph
+storage
