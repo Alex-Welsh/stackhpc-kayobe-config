@@ -9,3 +9,9 @@ storage
 
 [rgws:children]
 storage
+
+[monitoring:children]
+controllers
+
+[prometheus:children]
+controllers
