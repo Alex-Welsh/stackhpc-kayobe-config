@@ -7,7 +7,7 @@ set -eu
 # These parameters must be changed to your own fork 
 
 KAYOBE_CONFIG_REPO="https://github.com/Alex-Welsh/stackhpc-kayobe-config"
-KAYOBE_CONFIG_BRANCH=training-monitoring
+KAYOBE_CONFIG_BRANCH=training-networking
 
 ###################################################
 
