@@ -61,7 +61,9 @@ ipmi_port_range_end: 6250
 nova_flavors: []
 
 physnet_mappings:
-  physnet1: braio
+  mgmt-net: brmgmt
+  provision-net: brprov
+  cloud-net: brcloud
 
 bridge_type: linuxbridge
 
