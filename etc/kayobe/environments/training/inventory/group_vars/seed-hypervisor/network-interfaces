@@ -11,8 +11,4 @@ cloud-net_interface: brcloud
 cloud-net_bridge_ports:
   - dummy-cloud
 
-internal_interface: "{{ provision-net_interface }}.{{ internal_vlan }}"
-
-public_interface: "{{ provision-net_interface }}.{{ public_vlan }}"
-
-external_interface: "{{ provision-net_interface }}.{{ external_vlan }}"
+external-net_interface: "{{ cloud-net_interface }}.{{ external_vlan }}"
