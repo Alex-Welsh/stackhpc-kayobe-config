@@ -1,4 +1,4 @@
-provision_oc_ips:
+provision-net_ips:
   compute0: 192.168.33.6
   compute1: 192.168.33.7
   controller0: 192.168.33.3

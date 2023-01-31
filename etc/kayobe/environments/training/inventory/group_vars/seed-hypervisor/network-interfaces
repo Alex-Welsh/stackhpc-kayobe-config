@@ -1,18 +1,18 @@
 ---
-mgmt_interface: brmgmt
-mgmt_bridge_ports:
+management-net_interface: brmgmt
+management-net_bridge_ports:
   - dummy-mgmt
 
-provision_oc_interface: brprov
-provision_oc_bridge_ports:
+provision-net_interface: brprov
+provision-net_bridge_ports:
   - dummy-prov
 
-provision_wl_interface: brcloud
-provision_wl_bridge_ports:
+cloud-net_interface: brcloud
+cloud-net_bridge_ports:
   - dummy-cloud
 
-internal_interface: "{{ provision_wl_interface }}.{{ internal_vlan }}"
+internal_interface: "{{ provision-net_interface }}.{{ internal_vlan }}"
 
-public_interface: "{{ provision_wl_interface }}.{{ public_vlan }}"
+public_interface: "{{ provision-net_interface }}.{{ public_vlan }}"
 
-external_interface: "{{ provision_wl_interface }}.{{ external_vlan }}"
+external_interface: "{{ provision-net_interface }}.{{ external_vlan }}"
