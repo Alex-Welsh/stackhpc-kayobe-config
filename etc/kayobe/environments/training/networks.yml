@@ -3,19 +3,19 @@
 
 ###############################################################################
 
-oob_oc_net_name: management-net
-oob_wl_net_name: management-net
-provision_oc_net_name: provision-net
-provision_wl_net_name: cloud-net
-internal_net_name: cloud-net
+oob_oc_net_name: managementNet
+oob_wl_net_name: managementNet
+provision_oc_net_name: provisionNet
+provision_wl_net_name: cloudNet
+internal_net_name: cloudNet
 external_net_names: 
-  - external-net
-public_net_name: external-net
-tunnel_net_name: cloud-net
-storage_net_name: cloud-net
-storage_mgmt_net_name: cloud-net
-inspection_net_name: cloud-net
-cleaning_net_name: cloud-net
+  - externalNet
+public_net_name: externalNet
+tunnel_net_name: cloudNet
+storage_net_name: cloudNet
+storage_mgmt_net_name: cloudNet
+inspection_net_name: cloudNet
+cleaning_net_name: cloudNet
 
 # oob_oc_net_name: mgmt
 # oob_wl_net_name: mgmt
@@ -34,45 +34,45 @@ cleaning_net_name: cloud-net
 # Network definitions.
 
 # provision network definition.
-provision-net_cidr: 192.168.33.0/24
-provision-net_allocation_pool_start: 192.168.33.3
-provision-net_allocation_pool_end: 192.168.33.127
-provision-net_inspection_allocation_pool_start: 192.168.33.128
-provision-net_inspection_allocation_pool_end: 192.168.33.254
-provision-net_physical_network: provision
-provision-net_mtu: 1450
+provisionNet_cidr: 192.168.33.0/24
+provisionNet_allocation_pool_start: 192.168.33.3
+provisionNet_allocation_pool_end: 192.168.33.127
+provisionNet_inspection_allocation_pool_start: 192.168.33.128
+provisionNet_inspection_allocation_pool_end: 192.168.33.254
+provisionNet_physical_network: provision
+provisionNet_mtu: 1450
 
 # management network definition.
-management-net_cidr: 192.168.34.0/24
-management-net_allocation_pool_start: 192.168.34.3
-management-net_allocation_pool_end: 192.168.34.127
-management-net_inspection_allocation_pool_start: 192.168.34.128
-management-net_inspection_allocation_pool_end: 192.168.34.254
-management-net_physical_network: mgmt
-management-net_mtu: 1450
+managementNet_cidr: 192.168.34.0/24
+managementNet_allocation_pool_start: 192.168.34.3
+managementNet_allocation_pool_end: 192.168.34.127
+managementNet_inspection_allocation_pool_start: 192.168.34.128
+managementNet_inspection_allocation_pool_end: 192.168.34.254
+managementNet_physical_network: mgmt
+managementNet_mtu: 1450
 # Native VLAN
 
 # cloud network definition.
-cloud-net_cidr: 192.168.35.0/24
-cloud-net_allocation_pool_start: 192.168.35.3
-cloud-net_allocation_pool_end: 192.168.35.127
-cloud-net_inspection_allocation_pool_start: 192.168.35.128
-cloud-net_inspection_allocation_pool_end: 192.168.35.195
-cloud-net_neutron_allocation_pool_start: 192.168.35.196
-cloud-net_neutron_allocation_pool_end: 192.168.35.254
-cloud-net_physical_network: cloud
-cloud-net_mtu: 1450
-cloud-net_vip_adddress: 192.168.35.2
+cloudNet_cidr: 192.168.35.0/24
+cloudNet_allocation_pool_start: 192.168.35.3
+cloudNet_allocation_pool_end: 192.168.35.127
+cloudNet_inspection_allocation_pool_start: 192.168.35.128
+cloudNet_inspection_allocation_pool_end: 192.168.35.195
+cloudNet_neutron_allocation_pool_start: 192.168.35.196
+cloudNet_neutron_allocation_pool_end: 192.168.35.254
+cloudNet_physical_network: cloud
+cloudNet_mtu: 1450
+cloudNet_vip_adddress: 192.168.35.2
 
 # external network definition.
-external-net_cidr: 192.168.36.0/24
-external-net_allocation_pool_start: 192.168.36.3
-external-net_allocation_pool_end: 192.168.36.127
-external-net_neutron_allocation_pool_start: 192.168.36.128
-external-net_neutron_allocation_pool_end: 192.168.36.254
-external-net_physical_network: cloud
-external-net_mtu: 1392
-external-net_vip_adddress: 192.168.36.2
+externalNet_cidr: 192.168.36.0/24
+externalNet_allocation_pool_start: 192.168.36.3
+externalNet_allocation_pool_end: 192.168.36.127
+externalNet_neutron_allocation_pool_start: 192.168.36.128
+externalNet_neutron_allocation_pool_end: 192.168.36.254
+externalNet_physical_network: cloud
+externalNet_mtu: 1392
+externalNet_vip_adddress: 192.168.36.2
 external_vlan: 101
 
 # mgmt_cidr: 192.168.35.0/24

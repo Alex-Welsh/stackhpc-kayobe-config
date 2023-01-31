@@ -2,11 +2,11 @@
 ###############################################################################
 # Network interface definitions for the compute group.
 
-provision-net_interface: "{{ 'ens2' if os_distribution == 'ubuntu' else 'eth0' }}"
+provisionNet_interface: "{{ 'ens2' if os_distribution == 'ubuntu' else 'eth0' }}"
 # Route via the seed-hypervisor to the outside world.
-provision-net_gateway: 192.168.33.4
+provisionNet_gateway: 192.168.33.4
 
-cloud-net_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
+cloudNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.

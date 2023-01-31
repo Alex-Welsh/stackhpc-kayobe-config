@@ -1,14 +1,14 @@
 ---
-management-net_interface: brmgmt
-management-net_bridge_ports:
+managementNet_interface: brmgmt
+managementNet_bridge_ports:
   - dummy-mgmt
 
-provision-net_interface: brprov
-provision-net_bridge_ports:
+provisionNet_interface: brprov
+provisionNet_bridge_ports:
   - dummy-prov
 
-cloud-net_interface: brcloud
-cloud-net_bridge_ports:
+cloudNet_interface: brcloud
+cloudNet_bridge_ports:
   - dummy-cloud
 
-external-net_interface: "{{ cloud-net_interface }}.{{ external_vlan }}"
+externalNet_interface: "{{ cloudNet_interface }}.{{ external_vlan }}"

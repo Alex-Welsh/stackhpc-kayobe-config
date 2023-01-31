@@ -2,11 +2,11 @@
 ###############################################################################
 # Network interface definitions for the seed group.
 
-management-net: "{{ 'ens2' if os_distribution == 'ubuntu' else 'eth0' }}"
+managementNet_interface: "{{ 'ens2' if os_distribution == 'ubuntu' else 'eth0' }}"
 
-provision-net_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
+provisionNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
 # Route via the seed-hypervisor to the outside world.
-provision-net_gateway: 192.168.33.4
+provisionNet_gateway: 192.168.33.4
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.
