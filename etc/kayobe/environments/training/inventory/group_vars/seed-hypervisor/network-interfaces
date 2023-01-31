@@ -11,4 +11,4 @@ cloudNet_interface: brcloud
 cloudNet_bridge_ports:
   - dummy-cloud
 
-externalNet_interface: "{{ cloudNet_interface }}.{{ external_vlan }}"
+externalNet_interface: "{{ cloudNet_interface }}.{{ externalNet_vlan }}"

@@ -8,7 +8,7 @@ provisionNet_gateway: 192.168.33.4
 
 cloudNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
 
-externalNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}.{{ external_vlan }}"
+externalNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}.{{ externalNet_vlan }}"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.

@@ -62,7 +62,7 @@ cloudNet_neutron_allocation_pool_start: 192.168.35.196
 cloudNet_neutron_allocation_pool_end: 192.168.35.254
 cloudNet_physical_network: cloud
 cloudNet_mtu: 1450
-cloudNet_vip_adddress: 192.168.35.2
+cloudNet_vip_address: 192.168.35.2
 
 # external network definition.
 externalNet_cidr: 192.168.36.0/24
@@ -72,8 +72,8 @@ externalNet_neutron_allocation_pool_start: 192.168.36.128
 externalNet_neutron_allocation_pool_end: 192.168.36.254
 externalNet_physical_network: cloud
 externalNet_mtu: 1392
-externalNet_vip_adddress: 192.168.36.2
-external_vlan: 101
+externalNet_vip_address: 192.168.36.2
+externalNet_vlan: 101
 
 # mgmt_cidr: 192.168.35.0/24
 # mgmt_mtu: 1450
