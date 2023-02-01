@@ -7,7 +7,7 @@ set -eu
 # These parameters must be changed to your own fork 
 
 KAYOBE_CONFIG_REPO="https://github.com/Alex-Welsh/stackhpc-kayobe-config"
-KAYOBE_CONFIG_BRANCH=training-networking
+KAYOBE_CONFIG_BRANCH=training-networking-9
 
 ###################################################
 
@@ -136,6 +136,10 @@ $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/configure-local-networking.
 # Inspect and provision the overcloud hardware:
 kayobe overcloud inventory discover
 kayobe overcloud provision
+set +e
+kayobe overcloud host configure
+set -e
+kayobe overcloud host command run --command "sudo sed -i 's/BOOTPROTO=.*/BOOTPROTO=none/' /etc/sysconfig/network-scripts/ifcfg-eth1" -l compute,storage
 kayobe overcloud host configure
 kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm.yml
 kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm-gather-keys.yml

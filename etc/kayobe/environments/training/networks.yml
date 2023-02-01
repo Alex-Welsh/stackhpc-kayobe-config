@@ -54,20 +54,6 @@ cleaning_net_name: provision_wl
 ###############################################################################
 # Network definitions.
 
-# All-in-one network.
-# aio_cidr: 192.168.33.0/24
-# aio_allocation_pool_start: 192.168.33.3
-# aio_allocation_pool_end: 192.168.33.30
-# aio_neutron_allocation_pool_start: 192.168.33.31
-# aio_neutron_allocation_pool_end: 192.168.33.127
-# aio_inspection_allocation_pool_start: 192.168.33.128
-# aio_inspection_allocation_pool_end: 192.168.33.254
-# aio_vip_address: 192.168.33.2
-# aio_mtu: 1400
-
-###############################################################################
-# Network definitions.
-
 mgmt_cidr: 192.168.35.0/24
 mgmt_mtu: 1450
 # Native VLAN
@@ -129,31 +115,3 @@ storage_mgmt_physical_network: cloud
 # MichaelRigart interfaces configuration.
 
 interfaces_pause_time: 5
-
-###############################################################################
-# Network virtual patch link configuration.
-
-# Suffix for Open vSwitch bridge names.
-#network_bridge_suffix_ovs:
-
-# Prefix for virtual patch interface names.
-#network_patch_prefix:
-
-# Suffix for virtual patch link interface names when connected towards the
-# physical interface.
-#network_patch_suffix_phy:
-
-# Suffix for virtual patch link interface names when connected towards the
-# OVS bridge.
-#network_patch_suffix_ovs:
-
-###############################################################################
-# Network routing table configuration.
-
-# List of IP routing tables. Each item should be a dict containing 'id' and
-# 'name' items. These tables will be added to /etc/iproute2/rt_tables.
-#network_route_tables:
-
-###############################################################################
-# Dummy variable to allow Ansible to accept this file.
-workaround_ansible_issue_8743: yes

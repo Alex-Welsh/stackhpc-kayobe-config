@@ -5,9 +5,9 @@ kolla_neutron_ml2_network_vlan_ranges:
 kolla_neutron_ml2_type_drivers:
   - flat
   - vlan
-  - geneve
+  - vxlan
 
 kolla_neutron_ml2_tenant_network_types:
   - flat
   - vlan
-  - geneve
+  - vxlan
