@@ -6,7 +6,9 @@ provisionNet_interface: "{{ 'ens2' if os_distribution == 'ubuntu' else 'eth0' }}
 # Route via the seed-hypervisor to the outside world.
 provisionNet_gateway: 192.168.33.4
 
-cloudNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
+cloudNet_interface: "br{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
+cloudNet_bridge_ports:
+  - "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}"
 
 externalNet_interface: "{{ 'ens3' if os_distribution == 'ubuntu' else 'eth1' }}.{{ externalNet_vlan }}"
 
