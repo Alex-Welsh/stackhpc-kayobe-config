@@ -153,16 +153,42 @@ source $KOLLA_CONFIG_PATH/admin-openrc.sh
 set +u
 deactivate
 set -u
-$KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/init-runonce.sh
+# $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/init-runonce.sh
+
+# create an ansible venv
+cd $BASE_PATH/venvs
+python3 -m venv ansible
+source ansible/bin/activate
+pip install -U pip
+
+# create the openstack resources
+cd $BASE_PATH/src
+git clone https://github.com/stackhpc/openstack-config-multinode.git openstack-config
+cd openstack-config
+pip install -r requirements.txt
+ansible-galaxy role install -p ansible/roles -r requirements.yml
+ansible-galaxy collection install -p ansible/collections openstack.cloud:==1.10.0
+source $KOLLA_CONFIG_PATH/admin-openrc.sh
+tools/openstack-config
+
+
+# Create an openstack venv
+set +u
+deactivate
+set -u
+cd $BASE_PATH/venvs
+virtualenv os-venv
+source os-venv/bin/activate
+pip install -U pip
+pip install python-openstackclient
+source $KOLLA_CONFIG_PATH/admin-openrc.sh
 
 # Create a test vm 
-VENV_DIR=$BASE_PATH/venvs/os-venv
-source $VENV_DIR/bin/activate
-source $KOLLA_CONFIG_PATH/admin-openrc.sh
+openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
 echo "Creating test vm:"
-openstack server create --key-name mykey --flavor m1.tiny --image cirros --network demo-net test-vm-1
+openstack server create --key-name mykey --flavor m1.tiny --image cirros --network admin-tenant test-vm-1
 echo "Attaching floating IP:"
-openstack floating ip create public1
+openstack floating ip create external
 openstack server add floating ip test-vm-1 `openstack floating ip list -c ID  -f value`
 echo -e "Done! \nopenstack server list:"
 openstack server list
