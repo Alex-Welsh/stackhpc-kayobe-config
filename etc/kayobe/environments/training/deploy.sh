@@ -153,7 +153,6 @@ source $KOLLA_CONFIG_PATH/admin-openrc.sh
 set +u
 deactivate
 set -u
-# $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/init-runonce.sh
 
 # create an ansible venv
 cd $BASE_PATH/venvs
@@ -183,6 +182,8 @@ pip install -U pip
 pip install python-openstackclient
 source $KOLLA_CONFIG_PATH/admin-openrc.sh
 
+# Small adjustment to the external subnet
+openstack subnet set --gateway 192.168.38.1 external
 # Create a test vm 
 openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
 echo "Creating test vm:"
