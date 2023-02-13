@@ -4,7 +4,7 @@
     url: "{{ pulp_url }}/pulp/api/v3/status/"
   register: pulp_status
   until: pulp_status is success
-  retries: 30
+  retries: 45
   delay: 2
 
 - name: Set the Pulp admin password
