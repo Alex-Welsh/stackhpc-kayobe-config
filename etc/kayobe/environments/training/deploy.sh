@@ -7,7 +7,7 @@ set -eu
 # These parameters must be changed to your own fork 
 
 KAYOBE_CONFIG_REPO="https://github.com/Alex-Welsh/stackhpc-kayobe-config"
-KAYOBE_CONFIG_BRANCH=training-ceph
+KAYOBE_CONFIG_BRANCH=training-base
 
 ###################################################
 
@@ -137,8 +137,6 @@ $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/configure-local-networking.
 kayobe overcloud inventory discover
 kayobe overcloud provision
 kayobe overcloud host configure
-kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm.yml
-kayobe playbook run $KAYOBE_CONFIG_PATH/ansible/cephadm-gather-keys.yml
 kayobe overcloud container image pull
 kayobe overcloud service deploy
 source $KOLLA_CONFIG_PATH/admin-openrc.sh
@@ -156,7 +154,7 @@ $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/init-runonce.sh
 # $KAYOBE_CONFIG_PATH/environments/$KAYOBE_ENVIRONMENT/configure-openstack.sh $BASE_PATH
 
 # Create a test vm 
-VENV_DIR=$BASE_PATH/venvs/openstack
+VENV_DIR=$BASE_PATH/venvs/os-venv
 if [[ ! -d $VENV_DIR ]]; then
     virtualenv $VENV_DIR
 fi
@@ -167,9 +165,9 @@ source $KOLLA_CONFIG_PATH/admin-openrc.sh
 echo "Creating openstack key:"
 openstack keypair create --private-key ~/.ssh/id_rsa mykey
 echo "Creating test vm:"
-openstack server create --key-name mykey --flavor m1.tiny --image cirros --network admin-geneve test-vm-1
+openstack server create --key-name mykey --flavor m1.tiny --image cirros --network demo-net test-vm-1
 echo "Attaching floating IP:"
-openstack floating ip create external
+openstack floating ip create public1
 openstack server add floating ip test-vm-1 `openstack floating ip list -c ID  -f value`
 echo -e "Done! \nopenstack server list:"
 openstack server list
