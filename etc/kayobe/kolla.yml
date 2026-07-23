@@ -231,7 +231,7 @@ stackhpc_rocky_10_third_party_repos:
   - url: "{{ stackhpc_repo_opensearch_3_x_yum_url }}"
     file: "opensearch.repo"
     tag: "opensearch-3.x"
-  - url: "{{ stackhpc_repo_opensearch_dashboards_2_x_url }}"
+  - url: "{{ stackhpc_repo_opensearch_dashboards_3_x_yum_url }}"
     file: "opensearch.repo"
     tag: "opensearch-dashboards-3.x"
   - url: "{{ stackhpc_repo_almalinux_10_proxysql_3_0_url }}"
